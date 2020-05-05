@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<body>
+    <h1>Lista de productos</h1>
+    <table>
+        <thead>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        </thead>
+        <th:block th:each="product, row: ${productos}">
+            <tr>
+                <th th:text="${product.id}"></th>
+                <th th:text="${product.nombre}"></th>
+                <th th:text="${product.cantidad}"></th>
+            </tr>
+        </th:block>
+    </table>
+    <br>
+    <h1>Comprar</h1>
+    <form th:action="@{/validar}" method="post" th:object="${product}">
+        <th>
+            <select th:field="*{id}">
+                <option th:each="p: ${productos}" th:value="${p.id}" th:text="${p.nombre}"></option>
+            </select>
+        </th>
+        <label>Cantidad a adquirir</label><input type="text" th:field="*{cantidad}">
+        <input type="submit" value="Comprar">
+    </form>
+</body>
+</html>
