@@ -3,12 +3,12 @@ package com.olmedo.tarealabo3.domain;
 public class Product {
     private int id;
     private String  nombre;
-    private int cantidad;
+    private String cantidad;
 
     public Product() {
     }
 
-    public Product(int id, String nombre, int cantidad) {
+    public Product(int id, String nombre, String cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
@@ -30,11 +30,11 @@ public class Product {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 }

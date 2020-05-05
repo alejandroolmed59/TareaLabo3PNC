@@ -13,12 +13,12 @@ import java.util.List;
 public class ProductController {
     private List<Product> productos =new ArrayList<Product>(){
         {
-            add(new Product(0, "Papel higienico", 20));
-            add(new Product(1, "Churros diana", 12));
-            add(new Product(2, "Chicles", 15));
-            add(new Product(3, "Cereal", 31));
-            add(new Product(4, "Pasta dental", 53));
-            add(new Product(5, "Coca cola", 9001));
+            add(new Product(0, "Papel higienico", "20"));
+            add(new Product(1, "Churros diana", "12"));
+            add(new Product(2, "Chicles", "15"));
+            add(new Product(3, "Cereal", "31"));
+            add(new Product(4, "Pasta dental", "53"));
+            add(new Product(5, "Coca cola", "9001"));
         }
     };
 
@@ -36,7 +36,7 @@ public class ProductController {
 
         Product productBD = productos.get(product.getId());
        // System.out.println("BD "+ productBD.getNombre()+productBD.getCantidad());
-        if(productBD.getCantidad()<product.getCantidad()){
+        if(Integer.parseInt(productBD.getCantidad())<Integer.parseInt(product.getCantidad())){
             mav.setViewName("Error");
         }else{
             mav.setViewName("Compra");
